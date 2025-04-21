@@ -71,14 +71,35 @@
 % disp(a)
 
 %break pengulangan berhenti saat 5
-for i = 1:10
-    if i == 5
-        break
-    else
-        disp(i);
-    end
-end
+% for i = 1:10
+%     if i == 5
+%         break
+%     else
+%         disp(i);
+%     end
+% end
 
 %TUGAS DIRUMAH
 %buat contoh kopi tadi Nested if dan while
 %USER_NAMA_NIM
+
+nilai = input('Masukkan nilai anda: ');
+ulang = true;
+
+while ulang
+    if nilai >= 0 && nilai <= 100
+        if nilai >= 85
+            disp('Nilai anda A');
+        elseif nilai >= 70
+            disp('Nilai anda B');
+        elseif nilai >= 55
+            disp('Nilai anda C');
+        else
+            disp('Nilai anda D');
+        end
+        ulang = false; % keluar dari while
+    else
+        disp('Input tidak valid. Masukkan nilai antara 0 dan 100.');
+        nilai = input('Masukkan nilai anda lagi: ');
+    end
+end
