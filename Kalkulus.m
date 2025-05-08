@@ -86,4 +86,5 @@ result = integral(f, a, b);
 %menampilakan hasil 
 disp(['integral dar f(x) = 2x^2 dalam batas 0 hingga 1: ', num2str(result)]);
 
+
     
