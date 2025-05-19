@@ -1,0 +1,20 @@
+clc
+clear
+%gen
+target = 'Raras_laras'
+len = length (target) ;
+genes = create_genes (len);
+%fitnes
+fitness = calculate_fitness(genes,len);
+%populasi
+population_size = 10;
+population = crate_population(target,population_size)
+%selection
+[parent1, parent2] = crossover(parent1, parent2)
+%muatation
+mutation_rate = 0.5;
+mutant1 = mutation(child1, mutation_rate)
+mutant2 = mutation(child2, mutation_rate)
+%regenerasi
+children = [mutant1 mutant2];
+population = regeneration(children,population)

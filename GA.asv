@@ -1,0 +1,10 @@
+clc
+clear
+
+%gen
+target = 'Raras_laras'
+len = length (target) ;
+genes = create_genes (len);
+
+%fitnes
+fitness = calculate_fitness(genes,len);

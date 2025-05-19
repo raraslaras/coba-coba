@@ -1,57 +1,49 @@
 function fungsi_kompleks()
-    % FUNGSI_KOMPLEKS - Contoh plot fungsi matematika yang rumit dan menarik
-    % Dibuat untuk demonstrasi 2D dan 3D plotting dengan berbagai teknik visualisasi
-
-    % Membuat grid untuk fungsi 2 variabel
+    % Definisi grid
     x = linspace(-2*pi, 2*pi, 500);
     y = linspace(-2*pi, 2*pi, 500);
     [X, Y] = meshgrid(x, y);
 
-    % Fungsi kompleks utama
+    % Fungsi kompleks gabungan
     Z = exp(-0.1*(X.^2 + Y.^2)) .* sin(3*X) .* cos(5*Y) + 0.5*log(X.^2 + Y.^2 + 1);
 
-    % Fungsi alternatif tambahan untuk variasi plot
+    % Fungsi tambahan untuk variasi
     F = (sin(X) + cos(Y)).^2 .* exp(-0.01*(X.^2 + Y.^2));
 
-    % === Plot 1: Surface 3D ===
+    % Plot 1: Surface 3D
     figure(1)
     surf(X, Y, Z, 'EdgeColor', 'none')
     title('Surface Plot dari Fungsi Kompleks Z')
     xlabel('X')
     ylabel('Y')
     zlabel('Z')
-    colormap jet              % Ganti dari turbo ke jet (lebih umum)
+    colormap turbo
     colorbar
     lighting gouraud
     camlight headlight
     view(45, 30)
 
-    % === Plot 2: Contour dan Contour3 ===
+    % Plot 2: Contour dan Contour3
     figure(2)
     subplot(1,2,1)
     contour(X, Y, Z, 50)
     title('Contour dari Z')
-    xlabel('X')
-    ylabel('Y')
     axis equal
 
     subplot(1,2,2)
     contour3(X, Y, Z, 50)
     title('Contour 3D dari Z')
-    xlabel('X')
-    ylabel('Y')
     axis equal
 
-    % === Plot 3: Kombinasi Surface dan Contour ===
+    % Plot 3: Kombinasi Surface dan Mesh
     figure(3)
     surfc(X, Y, F)
     title('Surface + Contour dari Fungsi F')
     xlabel('X')
     ylabel('Y')
     zlabel('F')
-    colormap hot
 
-    % === Plot 4: Multi-plot Fungsi Teredam ===
+    % Plot 4: Multi-plot sin dan cos termodulasi
     t = linspace(0, 10*pi, 1000);
     f1 = sin(t) .* exp(-0.05*t);
     f2 = cos(2*t) .* exp(-0.05*t);
@@ -62,13 +54,13 @@ function fungsi_kompleks()
     hold on
     plot(t, f2, 'g--', 'LineWidth', 1.5)
     plot(t, f3, 'b-.', 'LineWidth', 1)
-    title('Plot Fungsi Teredam dan Kombinasi')
+    title('Plot Fungsi Teredam')
     xlabel('t')
     ylabel('Amplitude')
     legend('sin*exp', 'cos*exp', 'sin*cos')
     grid on
     hold off
 
-    % Anotasi tambahan
+    % Anotasi dan tambahan gaya
     text(10, 0.5, 'Puncak!', 'FontSize', 12, 'Color', 'red', 'Rotation', 45)
 end
