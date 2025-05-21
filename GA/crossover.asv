@@ -1,3 +1,0 @@
-function [childd1, childd2] = crossover(parent1, parent2)
-
-child1
